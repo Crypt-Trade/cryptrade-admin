@@ -1,0 +1,7 @@
+.cardpackage{
+    border-radius: 15px !important;
+    min-height: 500px;
+    line-height: 30px;
+    border: none;
+    font-size: 17px;
+}

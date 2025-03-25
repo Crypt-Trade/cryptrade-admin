@@ -22,30 +22,24 @@ const icons = {
 
 const utilities = {
   id: 'utilities',
-  title: 'Utilities',
+  title: 'Packages',
   type: 'group',
   children: [
     {
       id: 'util-typography',
-      title: 'Typography',
+      title: 'Add packages',
       type: 'item',
-      url: '/typography',
-      icon: icons.FontSizeOutlined
-    },
-    {
-      id: 'util-color',
-      title: 'Color',
-      type: 'item',
-      url: '/color',
+      url: '/dashboard/addpackage',
       icon: icons.BgColorsOutlined
     },
     {
-      id: 'util-shadow',
-      title: 'Shadow',
+      id: 'util-color',
+      title: 'All  packages',
       type: 'item',
-      url: '/shadow',
-      icon: icons.BarcodeOutlined
-    }
+      url: '/dashboard/allpackage',
+      icon: icons.BgColorsOutlined
+    },
+    
   ]
 };
 

@@ -11,24 +11,32 @@ const icons = {
 
 const support = {
   id: 'support',
-  title: 'Support',
+  title: 'Others',
   type: 'group',
   children: [
     {
       id: 'sample-page',
-      title: 'Sample Page',
+      title: 'All user',
       type: 'item',
-      url: '/sample-page',
+      url: '/dashboard/alluser',
       icon: icons.ChromeOutlined
     },
     {
       id: 'documentation',
-      title: 'Documentation',
+      title: 'Wallet',
       type: 'item',
-      url: 'https://codedthemes.gitbook.io/mantis/',
-      icon: icons.QuestionOutlined,
-      external: true,
-      target: true
+      url: '/dashboard/wallet',
+      icon: icons.ChromeOutlined,
+      
+     
+    },
+    {
+      id: 'Weeklypayout',
+      title: 'Weekly Payout',
+      type: 'item',
+      url: "/dashboard/Weeklypayout",
+      icon: icons.ChromeOutlined,
+    
     }
   ]
 };

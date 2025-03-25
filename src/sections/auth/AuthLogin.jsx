@@ -14,7 +14,7 @@ import InputLabel from '@mui/material/InputLabel';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
-
+import { useNavigate } from 'react-router-dom';
 // third-party
 import * as Yup from 'yup';
 import { Formik } from 'formik';
@@ -40,7 +40,14 @@ export default function AuthLogin({ isDemo = false }) {
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
+  const navigate = useNavigate(); // React Router hook for navigation
 
+  const handleLogin = () => {
+    // Add login validation logic here if needed
+
+    // Redirect to Dashboard Default after successful login
+    navigate('/dashboard/default');
+  };
   return (
     <>
       <Formik
@@ -136,9 +143,11 @@ export default function AuthLogin({ isDemo = false }) {
               </Grid>
               <Grid size={12}>
                 <AnimateButton>
-                  <Button fullWidth size="large" variant="contained" color="primary">
+                
+                  <Button fullWidth size="large" variant="contained" color="primary"  onClick={handleLogin}>
                     Login
                   </Button>
+                  
                 </AnimateButton>
               </Grid>
             </Grid>
