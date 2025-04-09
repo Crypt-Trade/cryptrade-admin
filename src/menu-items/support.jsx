@@ -11,7 +11,7 @@ const icons = {
 
 const support = {
   id: 'support',
-  title: 'Others',
+  title: 'User',
   type: 'group',
   children: [
     {
@@ -22,13 +22,11 @@ const support = {
       icon: icons.ChromeOutlined
     },
     {
-      id: 'documentation',
-      title: 'Wallet',
+      id:'user-order',
+      title: 'User Orders',
       type: 'item',
-      url: '/dashboard/wallet',
+      url: '/dashboard/userorder',
       icon: icons.ChromeOutlined,
-      
-     
     },
     {
       id: 'Weeklypayout',
@@ -36,7 +34,6 @@ const support = {
       type: 'item',
       url: "/dashboard/Weeklypayout",
       icon: icons.ChromeOutlined,
-    
     }
   ]
 };

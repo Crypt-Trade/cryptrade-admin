@@ -19,9 +19,19 @@ const Wallet = Loadable(lazy(() => import('pages/component-overview/Wallet.jsx')
 const Weeklypayout = Loadable(lazy(() => import('pages/component-overview/Weeklypayout.jsx')));
 // render - extra pages
 const SamplePage = Loadable(lazy(() => import('pages/extra-pages/sample-page')));
-
+// USDT//////
+const Addusdt = Loadable(lazy(() => import('../components/USDT/Addusdt')));
+const HistoryUsdt = Loadable(lazy(() => import('../components/USDT/HistoryUsdt')));
+//Top-up dashboard/////
+const Topupaddusdt = Loadable(lazy(() => import('../components/Top-up/Topupaddusdt')));
+const Topuphistory = Loadable(lazy(() => import('../components/Top-up/Topuphistory')));
+//////user order//////
+const Userorder = Loadable(lazy(() => import('../components/Userorder/Userorder')));
 // ==============================|| MAIN ROUTING ||============================== //
-
+const Contact = Loadable(lazy(() => import('../components/Contactform/Contact')));
+///////////////wallet////////
+const Approvedwallet = Loadable(lazy(() => import('../pages/component-overview/userwallet/Approvedwallet')));
+const Nonapprovedwallet = Loadable(lazy(() => import('../pages/component-overview/userwallet/Nonapprovedwallet')));
 const MainRoutes = {
   path: '/dashboard',
   element: <DashboardLayout />, // Apply Dashboard Layout after login
@@ -43,16 +53,33 @@ const MainRoutes = {
       element: <Addpackage /> // Add package page for user to add their package details
     },
     {
-      path:'allpackage',
-      element: <Allpackage /> 
+      path:'userorder',
+      element: <Userorder /> 
+    },
+    {
+      path: 'contact',
+      element: <Contact />
     },
     {
       path:"wallet",
       element:  <Wallet/>  
     },
     {
+        path:"approvedwallet",
+        element: <Approvedwallet/>
+
+    },
+    {
+      path: 'nonapprovedwallet',
+      element: <Nonapprovedwallet/>
+    },
+    {
       path: 'weeklypayout',
       element: <Weeklypayout />
+    },
+    {
+      path: 'allpackage',
+      element: <Allpackage />  // Add package page for user to add their package details
     },
     {
       path:'alluser',
@@ -69,6 +96,22 @@ const MainRoutes = {
     {
       path: 'sample-page',
       element: <SamplePage />
+    },
+    {
+      path: 'addusdt',
+      element: <Addusdt />
+    },
+    {
+      path: 'historyusdt',
+      element: <HistoryUsdt />
+    },
+    {
+      path: 'topupaddusdt',
+      element: <Topupaddusdt />
+    },
+    {
+      path: 'topuphistory',
+      element: <Topuphistory/>
     }
   ]
 };

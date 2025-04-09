@@ -1,3 +1,5 @@
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 // material-ui
 import Avatar from '@mui/material/Avatar';
 import AvatarGroup from '@mui/material/AvatarGroup';
@@ -51,6 +53,28 @@ const actionSX = {
 // ==============================|| DASHBOARD - DEFAULT ||============================== //
 
 export default function DashboardDefault() {
+   const [data, setData] = useState({
+      monthlyBusiness: 0,
+      totalUsers: 0,
+      available_Balance: 0,
+      allBusiness: 0,
+      total_Balance: 0,
+    });
+    const ROOT_URL = import.meta.env.VITE_LOCALHOST_URL;
+  
+    useEffect(() => {
+      const fetchAdminDashboardData = async () => {
+        try {
+          const response = await axios.get(`${ROOT_URL}/dashboard/admin-dashboard`); // Replace with your actual API endpoint
+           console.log("Dashboard data:", response.data); // Log the response data
+          setData(response.data);
+        } catch (error) {
+          console.error("Error fetching dashboard data:", error);
+        }
+      };
+  
+      fetchAdminDashboardData();
+    }, []);
   return (
     <Grid container rowSpacing={4.5} columnSpacing={2.75}>
       {/* row 1 */}
@@ -62,19 +86,19 @@ export default function DashboardDefault() {
     borderRadius: '15px', 
     p: 2 
   }}>
-        <AnalyticEcommerce title="Monthly business($)" count="4,42,236"  />
+        <AnalyticEcommerce title="Monthly business($)" count={data.monthlyBusiness}  />
       </Grid>
       <Grid size={{ xs: 12, sm: 6, md: 3, lg: 4 }} sx={{background: 'linear-gradient(to right,rgb(225, 222, 216),rgb(238, 138, 138))',  borderRadius: '15px', 
     p: 2 }}>
-        <AnalyticEcommerce title="Monthly user" count="78" />
+        <AnalyticEcommerce title="Total user" count={data.totalUsers} />
       </Grid>
       <Grid size={{ xs: 12, sm: 6, md: 3, lg: 4 }} sx={{background: 'linear-gradient(to right,rgb(248, 246, 244),rgb(239, 230, 46))', borderRadius: '15px', 
     p: 2 }}>
-        <AnalyticEcommerce title="Available balance($)" count="18,800" />
+        <AnalyticEcommerce title="Available balance($)" count={data.available_Balance} />
       </Grid>
       <Grid size={{ xs: 12, sm: 6, md: 3, lg: 4}} sx={{background: 'linear-gradient(to right,rgb(225, 222, 216),rgb(174, 72, 162))', borderRadius: '15px', 
     p: 2 }}>
-        <AnalyticEcommerce title="Total business($)" count="35,078" percentage={27.4} isLoss color="warning" extra="20,395" />
+        <AnalyticEcommerce title="Total business($)" count={data.allBusiness} percentage={27.4} isLoss color="warning" extra="20,395" />
       </Grid>
       <Grid size={{ xs: 12, sm: 6, md: 3, lg: 4 }} sx={{background: 'linear-gradient(to right,rgb(225, 222, 216),rgb(61, 197, 101))', borderRadius: '15px', 
     p: 2 }}>
@@ -82,7 +106,7 @@ export default function DashboardDefault() {
       </Grid>
       <Grid size={{ xs: 12, sm: 6, md: 3, lg: 4 }} sx={{background: 'linear-gradient(to right,rgb(245, 240, 232),rgb(160, 158, 216))', borderRadius: '15px', 
     p: 2 }}>
-        <AnalyticEcommerce title="Total balance($)" count="35,078" percentage={27.4} isLoss color="warning" extra="20,395" />
+        <AnalyticEcommerce title="Total balance($)" count={data.total_Balance} percentage={27.4} isLoss color="warning" extra="20,395" />
       </Grid>
       <Grid sx={{ display: { sm: 'none', md: 'block', lg: 'none' } }} size={{ md: 8 }} />
       {/* row 2 */}
@@ -149,119 +173,7 @@ export default function DashboardDefault() {
       <Grid size={{ xs: 12, md: 7, lg: 8 }}>
         <SaleReportCard />
       </Grid>
-      {/* <Grid size={{ xs: 12, md: 5, lg: 4 }}>
-        <Grid container alignItems="center" justifyContent="space-between">
-          <Grid>
-            <Typography variant="h5">Transaction History</Typography>
-          </Grid>
-          <Grid />
-        </Grid>
-        <MainCard sx={{ mt: 2 }} content={false}>
-          <List
-            component="nav"
-            sx={{
-              px: 0,
-              py: 0,
-              '& .MuiListItemButton-root': {
-                py: 1.5,
-                px: 2,
-                '& .MuiAvatar-root': avatarSX,
-                '& .MuiListItemSecondaryAction-root': { ...actionSX, position: 'relative' }
-              }
-            }}
-          >
-            <ListItem
-              component={ListItemButton}
-              divider
-              secondaryAction={
-                <Stack sx={{ alignItems: 'flex-end' }}>
-                  <Typography variant="subtitle1" noWrap>
-                    + $1,430
-                  </Typography>
-                  <Typography variant="h6" color="secondary" noWrap>
-                    78%
-                  </Typography>
-                </Stack>
-              }
-            >
-              <ListItemAvatar>
-                <Avatar sx={{ color: 'success.main', bgcolor: 'success.lighter' }}>
-                  <GiftOutlined />
-                </Avatar>
-              </ListItemAvatar>
-              <ListItemText primary={<Typography variant="subtitle1">Order #002434</Typography>} secondary="Today, 2:00 AM" />
-            </ListItem>
-            <ListItem
-              component={ListItemButton}
-              divider
-              secondaryAction={
-                <Stack sx={{ alignItems: 'flex-end' }}>
-                  <Typography variant="subtitle1" noWrap>
-                    + $302
-                  </Typography>
-                  <Typography variant="h6" color="secondary" noWrap>
-                    8%
-                  </Typography>
-                </Stack>
-              }
-            >
-              <ListItemAvatar>
-                <Avatar sx={{ color: 'primary.main', bgcolor: 'primary.lighter' }}>
-                  <MessageOutlined />
-                </Avatar>
-              </ListItemAvatar>
-              <ListItemText primary={<Typography variant="subtitle1">Order #984947</Typography>} secondary="5 August, 1:45 PM" />
-            </ListItem>
-            <ListItem
-              component={ListItemButton}
-              secondaryAction={
-                <Stack sx={{ alignItems: 'flex-end' }}>
-                  <Typography variant="subtitle1" noWrap>
-                    + $682
-                  </Typography>
-                  <Typography variant="h6" color="secondary" noWrap>
-                    16%
-                  </Typography>
-                </Stack>
-              }
-            >
-              <ListItemAvatar>
-                <Avatar sx={{ color: 'error.main', bgcolor: 'error.lighter' }}>
-                  <SettingOutlined />
-                </Avatar>
-              </ListItemAvatar>
-              <ListItemText primary={<Typography variant="subtitle1">Order #988784</Typography>} secondary="7 hours ago" />
-            </ListItem>
-          </List>
-        </MainCard>
-        <MainCard sx={{ mt: 2 }}>
-          <Stack sx={{ gap: 3 }}>
-            <Grid container justifyContent="space-between" alignItems="center">
-              <Grid>
-                <Stack>
-                  <Typography variant="h5" noWrap>
-                    Help & Support Chat
-                  </Typography>
-                  <Typography variant="caption" color="secondary" noWrap>
-                    Typical replay within 5 min
-                  </Typography>
-                </Stack>
-              </Grid>
-              <Grid>
-                <AvatarGroup sx={{ '& .MuiAvatar-root': { width: 32, height: 32 } }}>
-                  <Avatar alt="Remy Sharp" src={avatar1} />
-                  <Avatar alt="Travis Howard" src={avatar2} />
-                  <Avatar alt="Cindy Baker" src={avatar3} />
-                  <Avatar alt="Agnes Walker" src={avatar4} />
-                </AvatarGroup>
-              </Grid>
-            </Grid>
-            <Button size="small" variant="contained" sx={{ textTransform: 'capitalize' }}>
-              Need Help?
-            </Button>
-          </Stack>
-        </MainCard>
-      </Grid> */}
+     
     </Grid>
   );
 }

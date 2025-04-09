@@ -12,7 +12,7 @@ const Allpackage = () => {
             <div className="card-body text-white">
               <h3 className="text-white" style={{ lineHeight: '105%' }}>Kick Starter</h3>
               <div className="fw-bold h3 text-white">50 USDT</div>
-              <div className="kick fw-bold h5">🌟🌟 Add on 25 USDT Monthly</div>
+             
               <div className="kick">🌟 Basic trading knowledge</div>
               <div className="kick">🌟 Meme coin name</div>
               <div className="kick">🌟 1-month subscription for premium</div>
@@ -27,7 +27,7 @@ const Allpackage = () => {
             <div className="card-body text-white">
               <h3 className="text-white">Bull Starter</h3>
               <div className="fw-bold h3 text-white">100 USDT</div>
-              <div className="kick fw-bold h5">🌟🌟 Add on 25 USDT Monthly</div>
+             
               <div className="kick">🌟 Advance crypto knowledge</div>
               <div className="kick">🌟 Meme coin checklist</div>
               <div className="kick">🌟 3-month subscription for premium group</div>
@@ -43,7 +43,7 @@ const Allpackage = () => {
             <div className="card-body text-white">
               <h3 className="fw-bold text-white">Whales Starter</h3>
               <div className="fw-bold h3 text-white">500 USDT</div>
-              <div className="kick fw-bold h5">🌟🌟 Add on 25 USDT Monthly</div>
+              
               <div className="kick">🌟 Master trading skill + lifetime asset</div>
               <div className="kick">🌟 1-year subscription premium group</div>
               <div className="kick">🌟 10 GEM coin name</div>
