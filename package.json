@@ -11,6 +11,7 @@
   "scripts": {
     "start": "vite",
     "build": "vite build",
+    "serve": "vite preview",
     "build-stage": "env-cmd -f .env.qa vite build",
     "preview": "vite preview",
     "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\"",
