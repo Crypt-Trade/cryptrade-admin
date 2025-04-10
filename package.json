@@ -11,7 +11,7 @@
   "scripts": {
     "start": "vite",
     "build": "vite build",
-     "serve": "serve -s dist",
+     "serve": "vite preview",
 
     
     "build-stage": "env-cmd -f .env.qa vite build",
