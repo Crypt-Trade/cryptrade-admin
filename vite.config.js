@@ -15,10 +15,11 @@ export default defineConfig(({ mode }) => {
       port: PORT,
       host: true
     },
+   
     preview: {
-      open: true,
-      host: true
-    },
+ 
+  allowedHosts: ['cryptrade-admin.onrender.com'] // ✅ Add this line
+},
     define: {
       global: 'window'
     },

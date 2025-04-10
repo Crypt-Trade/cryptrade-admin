@@ -1,51 +1,75 @@
-import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
+import React ,{useState,useEffect} from "react";
+import axios from "axios";
 
 
 const Weeklypayout = () => {
-  const data = [
-    { id: 1, week: "Week 1", payout: 500, directBonus: 50, teamBonus: 100 },
-    { id: 2, week: "Week 2", payout: 600, directBonus: 60, teamBonus: 120 },
-    { id: 3, week: "Week 3", payout: 700, directBonus: 70, teamBonus: 140 },
-  ];
+  const [weeklyData, setWeeklyData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  
+
+  const ROOT_URL = import.meta.env.VITE_LOCALHOST_URL;
+  useEffect(() => {
+    axios.get(`${ROOT_URL}/admin/admin-wallet-history`)
+      .then((response) => {
+        const user = response.data.data[0];
+        if (user && user.weeklyEarnings) {
+          setWeeklyData(user.weeklyEarnings);
+        } else {
+          setWeeklyData([]);
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+        
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  }, []);
+
 
   return (
     <div className="container mt-4">
-      
-        
-        <div className="table-responsive">
+      <div className="table-responsive">
+        {loading ? (
+          <p className="text-center text-muted">Loading...</p>
+        ) : weeklyData.length > 0 ? (
           <table className="table table-bordered table-hover">
             <thead className="table-primary">
               <tr>
-                <th scope="col">S/N</th>
-                <th scope="col">Week</th>
-                <th scope="col">Payout Amount ($)</th>
-                <th scope="col">Direct Affiliate ($)</th>
-                <th scope="col">Team Affiliate ($)</th>
-                <th scope="col">Total Payout ($)</th>
-                <th scope="col">Payout status ($)</th>
-                <th scope="col">Action</th>
+                <th>S/N</th>
+                <th>Week</th>
+                <th>Payout Amount ($)</th>
+                <th>Direct Affiliate ($)</th>
+                <th>Team Affiliate ($)</th>
+                <th>Total Payout ($)</th>
+                <th>Payout Status</th>
+                {/* <th>Action</th> */}
               </tr>
             </thead>
             <tbody>
-              {data.map((item, index) => (
-                <tr key={item.id}>
+              {weeklyData.map((item, index) => (
+                <tr key={index}>
                   <td>{index + 1}</td>
                   <td>{item.week}</td>
-                  <td>${item.payout.toFixed(2)}</td>
-                  <td>${item.directBonus.toFixed(2)}</td>
-                  <td>${item.teamBonus.toFixed(2)}</td>
-                  <td>${(item.payout + item.directBonus + item.teamBonus).toFixed(2)}</td>
-                  <td>Paid</td>
+                  <td>${item.payout?.toFixed(2) || "0.00"}</td>
+                  <td>${item.directBonus?.toFixed(2) || "0.00"}</td>
+                  <td>${item.teamBonus?.toFixed(2) || "0.00"}</td>
                   <td>
-                    <button className="btn btn-primary btn-sm">Paid</button>
+                   
                   </td>
+                  {/* <td>
+                    <span className="badge bg-success">Paid</span>
+                  </td> */}
+                  
                 </tr>
               ))}
             </tbody>
           </table>
-        </div>
-      
+        ) : (
+          <p className="text-center text-muted">No weekly earnings available.</p>
+        )}
+      </div>
     </div>
   );
 };
