@@ -7,10 +7,11 @@ import Addusdt from './Addusdt';
 import Topup from './Topup';
 import Contact from './Contact';
 import userwallet from './userwallet';
+import withdrawal from './withdrawal';
 // ==============================|| MENU ITEMS ||============================== //
 
 const menuItems = {
-  items: [dashboard, utilities,Addusdt,Topup, support, userwallet, Contact]
+  items: [dashboard, utilities,Addusdt,Topup, support, userwallet, withdrawal, Contact]
 };
 
 export default menuItems;

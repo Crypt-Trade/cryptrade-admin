@@ -90,7 +90,7 @@ export default function DashboardDefault() {
       </Grid>
       <Grid size={{ xs: 12, sm: 6, md: 3, lg: 4 }} sx={{background: 'linear-gradient(to right,rgb(225, 222, 216),rgb(238, 138, 138))',  borderRadius: '15px', 
     p: 2 }}>
-        <AnalyticEcommerce title="Total user" count={data.totalUsers} />
+        <AnalyticEcommerce title="Total users" count={data.totalUsers} />
       </Grid>
       <Grid size={{ xs: 12, sm: 6, md: 3, lg: 4 }} sx={{background: 'linear-gradient(to right,rgb(248, 246, 244),rgb(239, 230, 46))', borderRadius: '15px', 
     p: 2 }}>
@@ -102,7 +102,7 @@ export default function DashboardDefault() {
       </Grid>
       <Grid size={{ xs: 12, sm: 6, md: 3, lg: 4 }} sx={{background: 'linear-gradient(to right,rgb(225, 222, 216),rgb(61, 197, 101))', borderRadius: '15px', 
     p: 2 }}>
-        <AnalyticEcommerce title="" count=""  />
+        <AnalyticEcommerce title="Active users" count=""  />
       </Grid>
       <Grid size={{ xs: 12, sm: 6, md: 3, lg: 4 }} sx={{background: 'linear-gradient(to right,rgb(245, 240, 232),rgb(160, 158, 216))', borderRadius: '15px', 
     p: 2 }}>
