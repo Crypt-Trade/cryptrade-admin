@@ -102,7 +102,7 @@ export default function DashboardDefault() {
       </Grid>
       <Grid size={{ xs: 12, sm: 6, md: 3, lg: 4 }} sx={{background: 'linear-gradient(to right,rgb(225, 222, 216),rgb(61, 197, 101))', borderRadius: '15px', 
     p: 2 }}>
-        <AnalyticEcommerce title="Active users" count=""  />
+        <AnalyticEcommerce title="Active users" count={data.totalActiveUsers}  />
       </Grid>
       <Grid size={{ xs: 12, sm: 6, md: 3, lg: 4 }} sx={{background: 'linear-gradient(to right,rgb(245, 240, 232),rgb(160, 158, 216))', borderRadius: '15px', 
     p: 2 }}>
