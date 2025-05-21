@@ -43,7 +43,7 @@ const TopupAddUsdt = () => {
         <div className="card shadow p-4 w-50">
           <form onSubmit={handleSubmit}>
             <div className="mb-3">
-              <label className="form-label">Topup Email</label>
+              <label className="form-label">Admin Email</label>
               <input
                 type="email"
                 className="form-control"
@@ -55,7 +55,7 @@ const TopupAddUsdt = () => {
             </div>
 
             <div className="mb-3">
-              <label className="form-label">Topup Password</label>
+              <label className="form-label">Admin Password</label>
               <input
                 type="password"
                 className="form-control"
