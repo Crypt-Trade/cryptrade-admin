@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-
+import { Link } from 'react-router-dom';
 const ROOT_URL = import.meta.env.VITE_LOCALHOST_URL; // Replace with your actual base URL
 
 const Alluser = () => {
@@ -35,6 +35,7 @@ const Alluser = () => {
               <th scope="col">Sponsor ID</th>
               <th scope="col">Subscription</th>
               <th scope="col">Active</th>
+               <th scope="col">Action</th>
             </tr>
           </thead>
           <tbody>
@@ -48,7 +49,11 @@ const Alluser = () => {
                 <td>{user.sponsorId}</td>
                 <td>{user.subcription}</td>
                 <td>{user.isActive ? 'Yes' : 'No'}</td>
-              </tr>
+                <td>
+                <Link to={`/dashboard/edituser/${user.mySponsorId}`} className="mt-1">
+  <i className="fa fa-edit ms-2 mt-1"></i>
+</Link></td>
+             </tr>
             ))}
           </tbody>
         </table>

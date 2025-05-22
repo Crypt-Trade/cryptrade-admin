@@ -34,6 +34,7 @@ const Approvedwallet = Loadable(lazy(() => import('../pages/component-overview/u
 const Nonapprovedwallet = Loadable(lazy(() => import('../pages/component-overview/userwallet/Nonapprovedwallet')));
 ////////////withdrwal////////
 const Withdrawalusers = Loadable(lazy(() => import('../components/Withdrawal/Withdrawalusers')));
+const Edituser = Loadable(lazy(() => import('../components/User/Edituser')));
 const MainRoutes = {
   path: '/dashboard',
   element: <DashboardLayout />, // Apply Dashboard Layout after login
@@ -86,6 +87,10 @@ const MainRoutes = {
     {
       path:'alluser',
       element:  <Alluser/> 
+    },
+    {
+      path: 'edituser/:sponsorid',
+      element: <Edituser />
     },
     {
       path: 'color',
