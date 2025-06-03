@@ -9,20 +9,11 @@ export default function Footer() {
       <Typography variant="caption">
         &copy; All rights reserved
         <Link href="#" target="_blank" underline="hover">
-          Synthosphere Technologies Pvt Ltd.
+          {' cryptrade.biz'}
+          
         </Link>
       </Typography>
-      <Stack direction="row" sx={{ gap: 1.5, alignItems: 'center', justifyContent: 'space-between' }}>
-        <Link href="#" target="_blank" variant="caption" color="text.primary">
-          About us
-        </Link>
-        <Link href="#" target="_blank" variant="caption" color="text.primary">
-          Privacy
-        </Link>
-        <Link href="#" target="_blank" variant="caption" color="text.primary">
-          Terms
-        </Link>
-      </Stack>
+  
     </Stack>
   );
 }

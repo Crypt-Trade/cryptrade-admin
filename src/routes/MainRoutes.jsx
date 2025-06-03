@@ -35,6 +35,7 @@ const Nonapprovedwallet = Loadable(lazy(() => import('../pages/component-overvie
 ////////////withdrwal////////
 const Withdrawalusers = Loadable(lazy(() => import('../components/Withdrawal/Withdrawalusers')));
 const Edituser = Loadable(lazy(() => import('../components/User/Edituser')));
+const Scholarship = Loadable(lazy(() => import('../components/Scholarship/Scholarship')));
 const MainRoutes = {
   path: '/dashboard',
   element: <DashboardLayout />, // Apply Dashboard Layout after login
@@ -123,7 +124,13 @@ const MainRoutes = {
     {
       path: 'withdrawalusers',
       element: <Withdrawalusers/>
+    },
+    {
+      path: 'scholarship',
+      element : <Scholarship/>
+
     }
+    
   ]
 };
 

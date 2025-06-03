@@ -17,7 +17,7 @@ const Alluser = () => {
         setUsers(allUsers);
         setFilteredUsers(allUsers); // Initially show all
       } catch (error) {
-        console.error("Error fetching dashboard data:", error);
+        console.error('Error fetching dashboard data:', error);
       }
     };
 
@@ -26,11 +26,12 @@ const Alluser = () => {
 
   useEffect(() => {
     const query = searchQuery.toLowerCase();
-    const filtered = users.filter(user =>
-      user.name?.toLowerCase().includes(query) ||
-      user.email?.toLowerCase().includes(query) ||
-      user.mobileNumber?.toLowerCase().includes(query) ||
-      user.mySponsorId?.toLowerCase().includes(query)
+    const filtered = users.filter(
+      (user) =>
+        user.name?.toLowerCase().includes(query) ||
+        user.email?.toLowerCase().includes(query) ||
+        user.mobileNumber?.toLowerCase().includes(query) ||
+        user.mySponsorId?.toLowerCase().includes(query)
     );
     setFilteredUsers(filtered);
   }, [searchQuery, users]);
@@ -75,7 +76,15 @@ const Alluser = () => {
                   <td>{user.subcription}</td>
                   <td>{user.isActive ? 'Yes' : 'No'}</td>
                   <td>
-                    <Link to={`/dashboard/edituser/${user.mySponsorId}`} className="mt-1">
+                    <Link
+                      to={`/dashboard/edituser/${user.mySponsorId}`}
+                      state={{
+                        name: user.name,
+                        mobileNumber: user.mobileNumber,
+                        email: user.email
+                      }}
+                      className="mt-1"
+                    >
                       <i className="fa fa-edit ms-2 mt-1"></i>
                     </Link>
                   </td>
@@ -83,7 +92,9 @@ const Alluser = () => {
               ))
             ) : (
               <tr>
-                <td colSpan="9" className="text-center">No users found.</td>
+                <td colSpan="9" className="text-center">
+                  No users found.
+                </td>
               </tr>
             )}
           </tbody>

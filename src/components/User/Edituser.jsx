@@ -3,16 +3,18 @@ import { useNavigate } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
 import swal from 'sweetalert'
 import axios from 'axios'
+import { useLocation } from 'react-router-dom';
 const Edituser = () => {
-    const { sponsorid } = useParams() // Get product ID from the route parameter
+    const { sponsorid } = useParams()
+      const location = useLocation();
+  const { name, mobileNumber, email } = location.state || {}; // Get product ID from the route parameter
   const navigate = useNavigate()
   const ROOT_URL = import.meta.env.VITE_LOCALHOST_URL
       const [user, setUsers] = useState({
-    name: '',
-    email: '',
+        name: name || '',
+    email: email || '',
     password: '',
-    mobileNumber: '',
-   
+    mobileNumber: mobileNumber || '',
   })
    const handleChange = (e) => {
     const { name, value } = e.target
@@ -73,7 +75,7 @@ const Edituser = () => {
                value={user.name}
               onChange={handleChange}
               placeholder="Enter  name"
-              required
+          
             />
           </div>
 
@@ -89,7 +91,7 @@ const Edituser = () => {
             value={user.mobileNumber}
              onChange={handleChange}
               placeholder="Enter Mobile number"
-              required
+              
             />
           </div>
 
@@ -105,7 +107,7 @@ const Edituser = () => {
                 value={user.email}
              onChange={handleChange}
               placeholder="Enter Email"
-              required
+              
             />
           </div>
           <div className="mb-3">

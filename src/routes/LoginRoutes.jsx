@@ -26,7 +26,8 @@ const LoginRoutes = {
     {
       path: 'register',
       element: <RegisterPage />
-    }
+    },
+    
   ]
 };
 

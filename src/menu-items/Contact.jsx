@@ -16,6 +16,13 @@ const Contact = {
       type: 'item',
       url: '/dashboard/contact',
       icon: icons.ChromeOutlined
+    },
+    {
+      id: 'scholarship',
+      title: 'Monthly Scholarship',
+      type: 'item',
+      url: '/dashboard/scholarship',
+      icon: icons.ChromeOutlined
     }
 ]
 }
