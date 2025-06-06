@@ -37,11 +37,11 @@ const Contact = () => {
               <tr key={item._id}>
                 <td className='text-center'>{index + 1}</td>
                 <td className='text-center'>{item.name}</td>
-                <td className='text-center'>${item.phoneNo}</td>
+                <td className='text-center'>{item.phoneNo}</td>
                 <td className='text-center'>{item.email}</td>
                 <td className='text-center'>{item.message}</td>
-                
-                <td className='text-center'>{item.submittedAt}</td>
+               
+                <td className='text-center'>{new Date(item.submittedAt).toLocaleString()}</td>
                 
               </tr>
             ))}
