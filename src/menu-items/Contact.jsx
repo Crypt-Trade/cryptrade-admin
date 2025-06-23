@@ -23,7 +23,15 @@ const Contact = {
       type: 'item',
       url: '/dashboard/scholarship',
       icon: icons.ChromeOutlined
-    }
+    },
+    {
+      id: 'allrank',
+      title: 'All Rank',
+      type: 'item',
+      url: '/dashboard/allrank',
+      icon: icons.ChromeOutlined
+    },
+    
 ]
 }
 export default Contact;

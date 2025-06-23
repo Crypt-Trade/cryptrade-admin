@@ -36,6 +36,7 @@ const Nonapprovedwallet = Loadable(lazy(() => import('../pages/component-overvie
 const Withdrawalusers = Loadable(lazy(() => import('../components/Withdrawal/Withdrawalusers')));
 const Edituser = Loadable(lazy(() => import('../components/User/Edituser')));
 const Scholarship = Loadable(lazy(() => import('../components/Scholarship/Scholarship')));
+const Allrank = Loadable(lazy(() => import('../components/Rank/Allrank')));
 const MainRoutes = {
   path: '/dashboard',
   element: <DashboardLayout />, // Apply Dashboard Layout after login
@@ -129,6 +130,10 @@ const MainRoutes = {
       path: 'scholarship',
       element : <Scholarship/>
 
+    },
+    {
+      path: 'allrank',
+      element: <Allrank/>
     }
     
   ]
