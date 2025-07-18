@@ -56,8 +56,8 @@ const handlebuttonClick = async (mysponsorid, rank_name) => {
       <tr key={item._id}>
         <td>{index + 1}</td>
         <td>{item.userid?.mySponsorId || 'N/A'}</td>
-        <td>{lastRank?.rank_name || 'N/A'}</td>
-        <td>{lastRank?.status || 'N/A'}</td>
+        {/* <td>{lastRank?.rank_name || 'N/A'}</td> */}
+        {/* <td>{lastRank?.status || 'N/A'}</td> */}
         <td>
           <button className="btn btn-primary" onClick={()=>handlebuttonClick(item.userid?.mySponsorId , lastRank?.rank_name)}>
             Claimed

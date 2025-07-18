@@ -31,14 +31,8 @@ const utilities = {
       type: 'item',
       url: '/dashboard/addpackage',
       icon: icons.BgColorsOutlined
-    },
-    {
-      id: 'util-color',
-      title: 'All  packages',
-      type: 'item',
-      url: '/dashboard/allpackage',
-      icon: icons.BgColorsOutlined
-    },
+    }
+    
     
   ]
 };

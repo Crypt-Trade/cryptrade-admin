@@ -37,6 +37,8 @@ const Withdrawalusers = Loadable(lazy(() => import('../components/Withdrawal/Wit
 const Edituser = Loadable(lazy(() => import('../components/User/Edituser')));
 const Scholarship = Loadable(lazy(() => import('../components/Scholarship/Scholarship')));
 const Allrank = Loadable(lazy(() => import('../components/Rank/Allrank')));
+// const Getscholarshipwithdrawal = Loadable(lazy(() => import('../components/Scholarship/Getscholarshipwithdrawal')));
+const Withdrawalscholarship = Loadable(lazy(() => import('../components/Scholarship/Withdrawalscholarship')));
 const MainRoutes = {
   path: '/dashboard',
   element: <DashboardLayout />, // Apply Dashboard Layout after login
@@ -134,7 +136,12 @@ const MainRoutes = {
     {
       path: 'allrank',
       element: <Allrank/>
+    },
+    {
+      path: 'withdrawalscholarship',
+      element: <Withdrawalscholarship/>
     }
+  
     
   ]
 };
