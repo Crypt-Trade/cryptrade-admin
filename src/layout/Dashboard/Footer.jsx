@@ -9,7 +9,7 @@ export default function Footer() {
       <Typography variant="caption">
         &copy; All rights reserved
         <Link href="#" target="_blank" underline="hover">
-          {' cryptrade.biz'}
+          {' Growbit Global'}
           
         </Link>
       </Typography>

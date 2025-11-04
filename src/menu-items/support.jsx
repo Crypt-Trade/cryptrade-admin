@@ -28,13 +28,7 @@ const support = {
       url: '/dashboard/userorder',
       icon: icons.ChromeOutlined,
     },
-    {
-      id: 'Weeklypayout',
-      title: 'Weekly Payout',
-      type: 'item',
-      url: "/dashboard/Weeklypayout",
-      icon: icons.ChromeOutlined,
-    }
+    
   ]
 };
 

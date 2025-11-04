@@ -65,13 +65,11 @@ export default function DashboardDefault() {
     useEffect(() => {
       const fetchAdminDashboardData = async () => {
         try {
-          const response = await axios.get(`${ROOT_URL}/dashboard/admin-dashboard`,{
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-      }); // Replace with your actual API endpoint
+          const response = await axios.get(`${ROOT_URL}/api/admin/dashboard`
+         
+      ); // Replace with your actual API endpoint
            console.log("Dashboard data:", response.data); // Log the response data
-          setData(response.data);
+          setData(response.data.data);
         } catch (error) {
           console.error("Error fetching dashboard data:", error);
         }
@@ -90,7 +88,7 @@ export default function DashboardDefault() {
     borderRadius: '15px', 
     p: 2 
   }}>
-        <AnalyticEcommerce title="Monthly business($)" count={data.monthlyBusiness}  />
+        <AnalyticEcommerce title="Current business($)" count={data.currentBusiness}  />
       </Grid>
       <Grid size={{ xs: 12, sm: 6, md: 3, lg: 4 }} sx={{background: 'linear-gradient(to right,rgb(225, 222, 216),rgb(238, 138, 138))',  borderRadius: '15px', 
     p: 2 }}>
@@ -98,22 +96,15 @@ export default function DashboardDefault() {
       </Grid>
       <Grid size={{ xs: 12, sm: 6, md: 3, lg: 4 }} sx={{background: 'linear-gradient(to right,rgb(248, 246, 244),rgb(239, 230, 46))', borderRadius: '15px', 
     p: 2 }}>
-        <AnalyticEcommerce title="Available balance($)" count={data.available_Balance} />
+        <AnalyticEcommerce title="Total business" count={data.totalBusiness} />
       </Grid>
-      <Grid size={{ xs: 12, sm: 6, md: 3, lg: 4}} sx={{background: 'linear-gradient(to right,rgb(225, 222, 216),rgb(174, 72, 162))', borderRadius: '15px', 
-    p: 2 }}>
-        <AnalyticEcommerce title="Total business($)" count={data.allBusiness} percentage={27.4} isLoss color="warning" extra="20,395" />
-      </Grid>
-      <Grid size={{ xs: 12, sm: 6, md: 3, lg: 4 }} sx={{background: 'linear-gradient(to right,rgb(225, 222, 216),rgb(61, 197, 101))', borderRadius: '15px', 
-    p: 2 }}>
-        <AnalyticEcommerce title="Active users" count={data.totalActiveUsers}  />
-      </Grid>
-      <Grid size={{ xs: 12, sm: 6, md: 3, lg: 4 }} sx={{background: 'linear-gradient(to right,rgb(245, 240, 232),rgb(160, 158, 216))', borderRadius: '15px', 
+   
+      {/* <Grid size={{ xs: 12, sm: 6, md: 3, lg: 4 }} sx={{background: 'linear-gradient(to right,rgb(245, 240, 232),rgb(160, 158, 216))', borderRadius: '15px', 
     p: 2 }}>
         <AnalyticEcommerce title="Total balance($)" count={data.total_Balance} percentage={27.4} isLoss color="warning" extra="20,395" />
-      </Grid>
+      </Grid> */}
       <Grid sx={{ display: { sm: 'none', md: 'block', lg: 'none' } }} size={{ md: 8 }} />
-      {/* row 2 */}
+     
       <Grid size={{ xs: 12, md: 7, lg: 8 }}>
         <UniqueVisitorCard />
       </Grid>

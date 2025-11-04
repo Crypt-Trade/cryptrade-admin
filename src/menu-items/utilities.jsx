@@ -22,15 +22,15 @@ const icons = {
 
 const utilities = {
   id: 'utilities',
-  title: 'Packages',
+  title: 'Payout',
   type: 'group',
   children: [
-    {
-      id: 'util-typography',
-      title: 'Add packages',
+   {
+      id: 'Weeklypayout',
+      title: 'Payout',
       type: 'item',
-      url: '/dashboard/addpackage',
-      icon: icons.BgColorsOutlined
+      url: "/dashboard/Weeklypayout",
+      icon: icons.ChromeOutlined,
     }
     
     

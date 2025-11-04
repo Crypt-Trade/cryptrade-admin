@@ -17,21 +17,21 @@ const icons = {
           url: '/dashboard/wallet',
           icon: icons.ChromeOutlined,
         },
-        {
-          id: 'user-kyc',
-          title: 'All approved wallet details',
-          type: 'item',
-           url: '/dashboard/approvedwallet',
-          icon: icons.ChromeOutlined,
-        },
+        // {
+        //   id: 'user-kyc',
+        //   title: 'All approved wallet details',
+        //   type: 'item',
+        //    url: '/dashboard/approvedwallet',
+        //   icon: icons.ChromeOutlined,
+        // },
       
-        {
-          id: 'user-kyc2',
-          title: 'All rejected wallet details',
-          type: 'item',
-           url: '/dashboard/nonapprovedwallet',
-          icon: icons.ChromeOutlined,
-        }
+        // {
+        //   id: 'user-kyc2',
+        //   title: 'All rejected wallet details',
+        //   type: 'item',
+        //    url: '/dashboard/nonapprovedwallet',
+        //   icon: icons.ChromeOutlined,
+        // }
        
       ]
  }

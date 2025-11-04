@@ -7,23 +7,15 @@ const Wallet = () => {
   const ROOT_URL = import.meta.env.VITE_LOCALHOST_URL;
 
   useEffect(() => {
-    axios.get(`${ROOT_URL}/admin/allnonverifiedwallet`)
+    axios.get(`${ROOT_URL}/api/admin/wallets`)
       .then((response) => {
-        setUserKycData(response.data);
-        console.log(response.data);
+        setUserKycData(response.data.wallets);
+        console.log(response.data.wallets);
       })
       .catch((err) => console.log(err));
   }, []);
 
-  const handleApproval = async (sponsorId, status) => {
-    try {
-      const endpoint = status === 'approve' ? 'approvewalletVerification' : 'rejectwalletVerification';
-      await axios.post(`${ROOT_URL}/admin/${endpoint}`, { mySponsorId: sponsorId });
-      swal('Success', `KYC successfully ${status}d!`, 'success').then(() => window.location.reload());
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  
   return (
     <div className="container mt-4">
     <div className="table-responsive">
@@ -34,10 +26,9 @@ const Wallet = () => {
               <th scope="col">S/N</th>
               <th scope="col">User ID</th>
               <th scope="col">User Name</th>
-              <th scope="col">Telegram ID</th>
               <th scope="col">Wallet Address</th>
-              <th scope="col">Wallet Approval</th>
-              <th scope="col">Action</th>
+              <th scope="col">Total wallet Balance</th>
+              
             </tr>
           </thead>
           <tbody>
@@ -46,13 +37,10 @@ const Wallet = () => {
                 <td>{index + 1}</td>
                 <td>{item.userId}</td>
                 <td>{item.name}</td>
-                <td>{item.telegramId}</td>
-                <td>{item.Walletaddress}</td>
-                <td>{item.walletApproved}</td>
-                <td>
-                  <button className="btn btn-primary" onClick={() => handleApproval(item.userId, 'approve')}>Approve</button>
-                  <button className="btn btn-danger ms-2" onClick={() => handleApproval(item.userId, 'reject')}>Reject</button>
-                </td>
+                <td>{item.walletAddress|| "Empty"}</td>
+                <td>{item.totalWalletBalance}</td>
+               
+                
               </tr>
             ))}
           </tbody>

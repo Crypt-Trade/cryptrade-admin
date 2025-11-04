@@ -12,8 +12,8 @@ const Alluser = () => {
   useEffect(() => {
     const fetchAdminDashboardData = async () => {
       try {
-        const response = await axios.get(`${ROOT_URL}/dashboard/admin-dashboard`);
-        const allUsers = response.data.allUsers;
+        const response = await axios.get(`${ROOT_URL}/api/admin/users`);
+        const allUsers = response.data.users;
         setUsers(allUsers);
         setFilteredUsers(allUsers); // Initially show all
       } catch (error) {
@@ -57,9 +57,9 @@ const Alluser = () => {
               <th>User Name</th>
               <th>Mobile Number</th>
               <th>Email</th>
-              <th>Sponsor ID</th>
-              <th>Subscription</th>
-              <th>Active</th>
+              <th>Staking</th>
+             
+             
               <th>Action</th>
             </tr>
           </thead>
@@ -68,19 +68,18 @@ const Alluser = () => {
               filteredUsers.map((user, index) => (
                 <tr key={user._id}>
                   <td>{index + 1}</td>
-                  <td>{user.mySponsorId}</td>
+                  <td>{user.userId}</td>
                   <td>{user.name}</td>
-                  <td>{user.mobileNumber}</td>
+                  <td>{user.phone}</td>
                   <td>{user.email}</td>
-                  <td>{user.sponsorId}</td>
-                  <td>{user.subcription}</td>
-                  <td>{user.isActive ? 'Yes' : 'No'}</td>
+                  <td>{user.myStaking}</td>
+                
                   <td>
                     <Link
-                      to={`/dashboard/edituser/${user.mySponsorId}`}
+                   
                       state={{
                         name: user.name,
-                        mobileNumber: user.mobileNumber,
+                        mobileNumber: user.phone,
                         email: user.email
                       }}
                       className="mt-1"
